@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ampli-fy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♪</text></svg>">
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<nav id="sidebar">
+  <div class="sidebar-logo">
+    <div class="sidebar-logo-bar"></div>
+    <span id="sidebar-logo-text">Ampli-fy</span>
+  </div>
+
+  <button class="fav-btn" id="fav-btn">
+    <div class="fav-icon">♥</div>
+    Favorites
+  </button>
+
+  <div class="collections-label">Collections</div>
+  <div id="collection-list"></div>
+
+  <div class="sidebar-now-playing">
+    <div class="snp-label">Now living</div>
+    <div class="snp-track" id="snp-track">(THE FREAKISH LIFE)</div>
+  </div>
+
+  <button id="sidebar-toggle" aria-label="Collapse sidebar">
+  <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+</button>
+
+</nav>
+
+<!-- ══ MAIN CONTENT ══ -->
+<main id="main">
+
+  <!-- FAVOURITES -->
+  <div class="page active" id="page-favourites">
+    <div class="hero-band">
+      <div class="hero-cover">♪</div>
+      <div class="hero-meta">
+        <div class="hero-eyebrow">Collection</div>
+        <div class="hero-title" id="hero-title">How life should sounds like with you</div>
+        <!-- <div class="hero-count"><strong id="hero-count">1,234</strong> <span id="hero-subtitle"></span></div> -->
+        <button class="hero-play-btn" id="hero-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="page-body"></div>
+  </div>
+
+  <!-- Yours -->
+  <div class="page" id="page-Yours">
+    <!-- Rendered by Yours.render() -->
+  </div>
+
+  <!-- PLACES -->
+  <div class="page" id="page-places">
+    <div class="hero-band">
+      <div class="hero-cover">📍</div>
+      <div class="hero-meta">
+        <div class="hero-eyebrow">Collection</div>
+        <div class="hero-title">Places We Have Been</div>
+        <!-- <div class="hero-count"><strong>Every place</strong> we went together</div> -->
+      </div>
+    </div>
+    <div class="page-body"></div>
+  </div>
+
+  <!-- FOOD -->
+  <div class="page" id="page-food">
+    <div class="hero-band">
+      <div class="hero-cover">🍰</div>
+      <div class="hero-meta">
+        <div class="hero-eyebrow">Collection</div>
+        <div class="hero-title">there's only one thing that we can do together</div>
+        <div class="hero-count"> (other times we might end up fighting)</div>
+      </div>
+    </div>
+    <div class="page-body"></div>
+  </div>
+
+    <!-- TIMELINE -->
+  <div class="page" id="page-timeline">
+    <div class="hero-band">
+      <div class="hero-cover">🗓</div>
+      <div class="hero-meta">
+        <div class="hero-eyebrow">Collection</div>
+        <div class="hero-title">Our Timeline</div>
+      </div>
+    </div>
+    <div class="page-body"></div>
+  </div>
+
+  <!-- BINGO -->
+  <div class="page" id="page-bingo">
+    <div class="hero-band">
+      <div class="hero-cover">🎯</div>
+      <div class="hero-meta">
+        <div class="hero-eyebrow">Collection</div>
+        <div class="hero-title">Our Bingo</div>
+      </div>
+    </div>
+    <div class="page-body"></div>
+  </div>
+
+</main>
+
+<!-- ══ PLAYER BAR ══ -->
+<div id="player-bar">
+
+  <!-- Left: track info -->
+  <div class="pb-left">
+    <div class="pb-thumb" id="pb-thumb-icon">♪</div>
+    <div>
+      <div class="pb-track-name" id="pb-track-name">Our Playlist</div>
+      <div class="pb-track-artist" id="pb-track-artist">Open Spotify to listen</div>
+    </div>
+    <button class="pb-heart">♡</button>
+  </div>
+
+  <!-- Center: controls + progress -->
+  <div class="pb-center">
+    <div class="pb-controls">
+      <!-- Shuffle -->
+      <button class="ctrl-btn">
+        <svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
+      </button>
+      <!-- Prev -->
+      <button class="ctrl-btn">
+        <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+      </button>
+      <!-- Play/Pause -->
+      <button class="ctrl-play" id="ctrl-play">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <!-- Next -->
+      <button class="ctrl-btn">
+        <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+      </button>
+      <!-- Repeat -->
+      <button class="ctrl-btn">
+        <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+      </button>
+    </div>
+
+    <div class="pb-progress">
+      <span class="pb-time">1:24</span>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <span class="pb-time right">3:45</span>
+    </div>
+  </div>
+
+  <!-- Right: volume -->
+  <div class="pb-right">
+    <span class="vol-icon">🔊</span>
+    <div class="vol-track"><div class="vol-fill"></div></div>
+  </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+  // Apply config values to hero
+  document.addEventListener('DOMContentLoaded', () => {
+    const t = document.getElementById('hero-title');
+    const c = document.getElementById('hero-count');
+    const s = document.getElementById('hero-subtitle');
+    if (t) t.textContent = CONFIG.heroTitle;
+    if (c) c.textContent = CONFIG.heroCount;
+    if (s) s.textContent = CONFIG.heroSubtitle;
+
+    // Hero play button → open first spotify link
+    document.getElementById('hero-play-btn')?.addEventListener('click', () => {
+      if (CONFIG.spotifyLinks[0]) window.open(CONFIG.spotifyLinks[0].url, '_blank');
+    });
+  });
+</script>
+
+</body>
+</html>
